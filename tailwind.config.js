@@ -12,7 +12,8 @@ module.exports = {
       'very-dark-blue-dark': '#202c37',
       'very-dark-blue-light': '#111517',
       'dark-gray-light': '#858585',
-      'very-light-gray-light': '#fafafa'
+      'very-light-gray-light': '#fafafa',
+      'white': '#fff'
     }
   },
   variants: {

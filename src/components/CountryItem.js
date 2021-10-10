@@ -9,7 +9,7 @@ const CountryItem = ({country}) => {
     <div className="p-6">
       <h1 className="mt-0 font-bold text-2xl lg:text-lg">{country.name.common}</h1>
       <div className="text-xl lg:text-sm mt-3">
-        <strong>Population: </strong><span>{country.population}</span>
+        <strong>Population: </strong><span>{country.population.toLocaleString()}</span>
       </div>
       <div className="text-xl lg:text-sm mt-1">
         <strong>Region: </strong><span>{country.region}</span>

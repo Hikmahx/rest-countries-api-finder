@@ -8,10 +8,15 @@ function App() {
   }, [])
 
   const getCountries = async ()=>{
-    const res = await fetch('https://restcountries.com/v3.1/alpha?codes=usa,afg,ala,br,is,alg,alb,de');
-    const data = await res.json()
-    // eslint-disable-next-line
-    setCountries(data)
+    try{
+      const res = await fetch('https://restcountries.com/v3.1/alpha?codes=usa,afg,ala,br,is,alg,alb,de');
+      const data = await res.json()
+      // eslint-disable-next-line
+      setCountries(data)
+      
+    }catch(err){
+      console.log(err.message)
+    }
   }
 
   const [countries, setCountries] = useState([]);

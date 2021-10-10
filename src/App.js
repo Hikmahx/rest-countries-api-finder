@@ -19,6 +19,33 @@ function App() {
     }
   }
 
+  const searchInput = (e)=>{
+    let search = e.target.value
+
+    if(search ===''){
+      console.log('empty')
+      getCountries()
+    }else{
+      searchCountry(search)
+    }
+
+
+    e.preventDefault()
+  }
+
+  const searchCountry = async (search)=>{
+    try{
+      const res = await fetch(`https://restcountries.com/v3.1/name/${search}`) 
+      const data = await res.json()
+      console.log(data)
+      setCountries(data)
+      // eslint-disable-next-line
+
+    }catch(err){
+      console.log(err.message)
+    }
+  }
+
   const modeToggle =()=>{
     setDarkMode(!darkMode)
     if(darkMode === false){
@@ -33,12 +60,12 @@ function App() {
   }
 
   const [countries, setCountries] = useState([]);
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
 
   return (
     <div className="App bg-very-light-gray-light dark:bg-very-dark-blue-dark transition-colors">
       <Navbar modeToggle={modeToggle} />
-      <Main countries = {countries} setCountries={setCountries}/>
+      <Main countries = {countries} setCountries={setCountries} searchInput={searchInput}/>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 const CountryItem = ({country}) => {
   return (
-    <div className="country-container relative overflow-hidden rounded-md w-full shadow-md bg-white h-max">
+    <div className="country-container relative overflow-hidden rounded-md w-full shadow-md bg-white dark:bg-dark-blue-dark h-max">
     <div className="img-wrapper relative top-0 left-0 w-full lg:h-40  2xl:h-80">
       <img className="w-full h-full object-cover" src= {country.flags.svg}  alt="flag" />
     </div>

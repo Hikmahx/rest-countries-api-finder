@@ -19,11 +19,25 @@ function App() {
     }
   }
 
+  const modeToggle =()=>{
+    setDarkMode(!darkMode)
+    if(darkMode === false){
+      console.log(darkMode)
+      if(document.documentElement.classList.contains('dark')){
+        document.documentElement.classList.remove('dark')
+      }
+    }else{
+      console.log(darkMode)
+      document.documentElement.classList.add('dark')
+    }
+  }
+
   const [countries, setCountries] = useState([]);
+  const [darkMode, setDarkMode] = useState(false)
 
   return (
-    <div className="App bg-very-light-gray-light dark:bg-very-dark-blue-dark">
-      <Navbar/>
+    <div className="App bg-very-light-gray-light dark:bg-very-dark-blue-dark transition-colors">
+      <Navbar modeToggle={modeToggle} />
       <Main countries = {countries} setCountries={setCountries}/>
     </div>
   );

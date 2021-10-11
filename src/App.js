@@ -64,6 +64,32 @@ function App() {
     }
   }
 
+  const filterByRegion= (e) =>{
+    let region = e.target.value
+    if(region !=='region'){
+      // console.log(e.target.value)
+      getCountriesByRegion(region)
+    }else{
+      getCountries() 
+    }
+  }
+  
+  const getCountriesByRegion = async (region)=>{
+    try {
+      setLoading(true)
+
+      const res = await fetch(`https://restcountries.com/v3.1/region/${region}`) 
+      const data = await res.json()
+      setCountries(data)
+      // eslint-disable-next-line
+
+      setLoading(false)
+      
+    } catch (err) {
+      
+    }
+  }
+
   const modeToggle =()=>{
     setDarkMode(!darkMode)
     if(darkMode === false){
@@ -94,6 +120,7 @@ function App() {
         loading={loading}
         error={error}
         errMessage= {errMessage}
+        filterByRegion={filterByRegion}
       />
     </div>
   );

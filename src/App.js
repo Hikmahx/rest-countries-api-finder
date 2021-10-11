@@ -25,8 +25,15 @@ function App() {
     }
   }
 
-  const searchInput = (e)=>{
+  const emptyInput = (e)=>{
     let search = e.target.value
+    if(search ===''){
+      getCountries()
+    }
+  }
+
+  const searchInput = (e)=>{
+    let search = e.target.firstElementChild.value
 
     if(search ===''){
       console.log('empty')
@@ -83,6 +90,7 @@ function App() {
         countries={countries}
         setCountries={setCountries}
         searchInput={searchInput}
+        emptyInput = {emptyInput}
         loading={loading}
         error={error}
         errMessage= {errMessage}

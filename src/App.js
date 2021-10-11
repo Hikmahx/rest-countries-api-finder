@@ -20,6 +20,8 @@ function App() {
 
     }catch(err){
       console.log(err.message)
+      setError(true)
+      setErrMessage(err.message)
     }
   }
 
@@ -51,7 +53,7 @@ function App() {
 
 
     }catch(err){
-      console.log(err.message)
+      setError(true)
     }
   }
 
@@ -71,6 +73,8 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [darkMode, setDarkMode] = useState(true)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
+  const [errMessage, setErrMessage] = useState('')
 
   return (
     <div className='App bg-very-light-gray-light dark:bg-very-dark-blue-dark transition-colors'>
@@ -80,6 +84,8 @@ function App() {
         setCountries={setCountries}
         searchInput={searchInput}
         loading={loading}
+        error={error}
+        errMessage= {errMessage}
       />
     </div>
   );

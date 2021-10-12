@@ -1,6 +1,7 @@
 import React from 'react'
+import Loading from './Loading'
 
-const Country = ({country}) => {
+const Country = ({country, loading, error, errMessage}) => {
   return (
     <div className="wrapper font-NunitoSans relative p-6 sm:px-8 md:px-12 xl:px-20 pt-12 pb-20 lg:pb-11 min-h-screen dark:text-white mt-8">
 
@@ -8,8 +9,20 @@ const Country = ({country}) => {
       <ion-icon class="text-3xl md:text-xl" name="arrow-back-outline"></ion-icon>
       <span className="ml-1">Back</span>
       </div>
-      
+      {error && 
+      <div>
+        <h1 className='text-xl lg:text-4xl text-center'>{errMessage}</h1>
+      </div>
+      }{loading &&
+       <Loading />
+    }{!loading & !error  &&
+
       <div className="details flex flex-col lg:flex-row justify-center items-start lg:items-center lg:justify-start lg:gap-12 xl:gap-20 mt-12 lg:mt-20">
+        {country.length<1 && 
+          <h1 className='text-xl lg:text-4xl text-center w-full'>Return to Homepage</h1>
+        }{
+          country.length>0 &&
+          <>
         <div className="img-container lg:flex-1 flex items-start mb-16 lg:mb-0">
           <img className="h-full w-full" src= {country.flags.svg}  alt="flag" />
         </div>
@@ -18,7 +31,7 @@ const Country = ({country}) => {
           <div className="details-wrapper flex flex-col lg:flex-row justify-center items-start lg:justify-between gap-12 lg:gap-0 mb-12">
             <div className="main-details">
               <div className="text-xl lg:text-sm mt-3">
-                <strong>Native Name: </strong>{country.name.nativeName.eng.official}
+                <strong>Native Name: </strong>{country.name.official}
               </div>
               <div className="text-xl lg:text-sm mt-3">
                 <strong>Population: </strong>{country.population.toLocaleString()}
@@ -46,16 +59,23 @@ const Country = ({country}) => {
             </div>
 
           </div>
-          <div className="borders flex flex-col lg:flex-row">
-            <strong className="mb-3 lg:mb-0">Border Countries: </strong>
-            <span className="flex flex-wrap lg:inline">
-              {country.borders.map((border)=>(
-                <span className="py-2 m-2 px-4 rounded cursor-pointer transition-colors shadow-md bg-white dark:bg-dark-blue-dark">{border}</span>
-              ))}
-            </span>
-          </div>
+            {country.borders &&
+            <div className="borders flex flex-col lg:flex-row">
+              <strong className="mb-3 lg:mb-0">Border Countries: </strong>
+                <span className="flex flex-wrap items-center">
+                  {country.borders.map((border)=>(
+                    <span className="py-2 m-2 px-4 rounded cursor-pointer transition-colors shadow-md bg-white dark:bg-dark-blue-dark">{border}</span>
+                  ))}
+                </span>
+            </div>
+            }
         </div>
+          </>
+        }
+
       </div>
+    } 
+      
     </div>
   )
 }

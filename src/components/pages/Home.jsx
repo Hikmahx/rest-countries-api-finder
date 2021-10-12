@@ -2,7 +2,7 @@ import { Fragment} from 'react'
 import Main from '../Main'
 import Navbar from '../Navbar'
 
-const Home = ({modeToggle, countries, setCountries, searchInput, emptyInput, loading, error, errMessage, filterByRegion}) => {
+const Home = ({modeToggle, countries, setCountries, searchInput, emptyInput, loading, error, errMessage, filterByRegion, getCountry}) => {
   return (
     <Fragment>
       <Navbar modeToggle={modeToggle}/>
@@ -15,6 +15,7 @@ const Home = ({modeToggle, countries, setCountries, searchInput, emptyInput, loa
         error={error}
         errMessage= {errMessage}
         filterByRegion={filterByRegion}
+        getCountry={getCountry}
       />
     </Fragment>
   )

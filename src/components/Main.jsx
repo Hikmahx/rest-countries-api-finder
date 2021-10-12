@@ -10,7 +10,8 @@ const Main = ({
   errMessage,
   searchInput,
   emptyInput,
-  filterByRegion
+  filterByRegion,
+  getCountry
 }) => {
   return (
     <main className='font-NunitoSans relative p-6 sm:px-8 md:px-12 xl:px-20 pt-12 pb-20 lg:pb-11 min-h-screen dark:text-white'>
@@ -23,6 +24,7 @@ const Main = ({
         loading={loading}
         error={error}
         errMessage={errMessage}
+        getCountry={getCountry}
       />
     </main>
   );

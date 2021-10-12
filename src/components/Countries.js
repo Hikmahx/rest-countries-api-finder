@@ -2,7 +2,7 @@ import React from 'react';
 import CountryItem from './CountryItem';
 import Loading from './Loading';
 
-const Countries = ({ countries, loading, error, errMessage }) => {
+const Countries = ({ countries, loading, error, errMessage, getCountry }) => {
   if (error === true) {
     return (
       <div>
@@ -20,7 +20,7 @@ const Countries = ({ countries, loading, error, errMessage }) => {
             className='countries-wrapper max-w-lg m-auto sm:max-w-xl lg:max-w-none sm:px-12 lg:p-0 flex flex-wrap justify-between lg:grid lg:grid-cols-3 xl:grid-cols-4 gap-x-20'
           >
             {countries.map(country => (
-              <CountryItem country={country} />
+              <CountryItem country={country} getCountry ={getCountry} />
             ))}
           </div>
         );

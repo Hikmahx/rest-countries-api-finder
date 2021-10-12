@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import Main from "./components/Main";
-import Navbar from "./components/Navbar";
+import Home from './components/pages/Home'
+import Details from './components/pages/Details'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 function App() {
   useEffect( () => {
@@ -110,19 +111,31 @@ function App() {
   const [errMessage, setErrMessage] = useState('')
 
   return (
+    <Router>
     <div className='App bg-very-light-gray-light dark:bg-very-dark-blue-dark transition-colors'>
-      <Navbar modeToggle={modeToggle} />
-      <Main
-        countries={countries}
-        setCountries={setCountries}
-        searchInput={searchInput}
-        emptyInput = {emptyInput}
-        loading={loading}
-        error={error}
-        errMessage= {errMessage}
-        filterByRegion={filterByRegion}
-      />
+      <Switch>
+        <Route exact path='/' render={()=>
+          <Home
+            modeToggle={modeToggle}
+            countries={countries}
+            setCountries={setCountries}
+            searchInput={searchInput}
+            emptyInput = {emptyInput}
+            loading={loading}
+            error={error}
+            errMessage= {errMessage}
+            filterByRegion={filterByRegion}
+          />
+        }/>
+
+        <Route exact path="/details" render={()=>
+          <Details 
+            modeToggle={modeToggle}
+          />
+        }/>
+      </Switch>
     </div>
+    </Router>
   );
 }
 

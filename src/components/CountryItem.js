@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const CountryItem = ({country}) => {
   return (
@@ -7,7 +8,7 @@ const CountryItem = ({country}) => {
       <img className="w-full h-full object-cover" src= {country.flags.svg}  alt="flag" />
     </div>
     <div className="p-6">
-      <h1 className="mt-0 font-bold text-2xl lg:text-lg">{country.name.common}</h1>
+      <Link to={'/details'} className="mt-0 cursor-pointer hover:text-dark-gray-light font-bold text-2xl lg:text-lg">{country.name.common}</Link>
       <div className="text-xl lg:text-sm mt-3">
         <strong>Population: </strong><span>{country.population.toLocaleString()}</span>
       </div>

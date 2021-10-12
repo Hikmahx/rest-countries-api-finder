@@ -121,6 +121,7 @@ function App() {
 
     }catch(err){
       console.log(err.message)
+      setLoading(false)
       setError(true)
       setErrMessage(err.message)
     }

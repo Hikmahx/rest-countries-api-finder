@@ -104,11 +104,35 @@ function App() {
     }
   }
 
+  const getCountry = async (e)=>{
+    let name = e.target.textContent
+    // console.log(name)
+    try{
+      setLoading(true)
+
+      const res = await fetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`);
+      const data = await res.json()
+      console.log(data[0])
+      // eslint-disable-next-line
+      setCountry(data[0])
+      
+      setLoading(false)
+
+
+    }catch(err){
+      console.log(err.message)
+      setError(true)
+      setErrMessage(err.message)
+    }
+  }
+
   const [countries, setCountries] = useState([]);
   const [darkMode, setDarkMode] = useState(true)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [errMessage, setErrMessage] = useState('')
+  const [country, setCountry] = useState([])
+
 
   return (
     <Router>
@@ -125,12 +149,18 @@ function App() {
             error={error}
             errMessage= {errMessage}
             filterByRegion={filterByRegion}
+            getCountry={getCountry}
           />
         }/>
 
         <Route exact path="/details" render={()=>
           <Details 
             modeToggle={modeToggle}
+            country={country}
+            loading={loading}
+            error={error}
+            errMessage= {errMessage}
+
           />
         }/>
       </Switch>

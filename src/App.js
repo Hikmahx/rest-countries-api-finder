@@ -20,7 +20,6 @@ function App() {
       setLoading(false)
 
     }catch(err){
-      console.log(err.message)
       setError(true)
       setErrMessage(err.message)
     }
@@ -37,7 +36,6 @@ function App() {
     let search = e.target.firstElementChild.value
 
     if(search ===''){
-      console.log('empty')
       getCountries()
     }else{
       searchCountry(search)
@@ -53,7 +51,6 @@ function App() {
 
       const res = await fetch(`https://restcountries.com/v3.1/name/${search}`) 
       const data = await res.json()
-      console.log(data)
       setCountries(data)
       // eslint-disable-next-line
 
@@ -68,7 +65,6 @@ function App() {
   const filterByRegion= (e) =>{
     let region = e.target.value
     if(region !=='region'){
-      // console.log(e.target.value)
       getCountriesByRegion(region)
     }else{
       getCountries() 
@@ -94,25 +90,21 @@ function App() {
   const modeToggle =()=>{
     setDarkMode(!darkMode)
     if(darkMode === false){
-      console.log(darkMode)
       if(document.documentElement.classList.contains('dark')){
         document.documentElement.classList.remove('dark')
       }
     }else{
-      console.log(darkMode)
       document.documentElement.classList.add('dark')
     }
   }
 
   const getCountry = async (e)=>{
     let name = e.target.textContent
-    // console.log(name)
     try{
       setLoading(true)
 
       const res = await fetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`);
       const data = await res.json()
-      console.log(data[0])
       localStorage.setItem('country', JSON.stringify(data[0]))
       // eslint-disable-next-line
       setCountry(data[0])
@@ -121,7 +113,6 @@ function App() {
 
 
     }catch(err){
-      console.log(err.message)
       setLoading(false)
       setError(true)
       setErrMessage(err.message)
@@ -130,14 +121,12 @@ function App() {
 
   const getBorderCountry = async (e)=>{
     let name = e.target.textContent
-    console.log(name)
 
     try{
       setLoading(true)
 
       const res = await fetch(`https://restcountries.com/v3.1/alpha/${name}`);
       const data = await res.json()
-      console.log(data[0])
       localStorage.setItem('country', JSON.stringify(data[0]))
       // eslint-disable-next-line
       setCountry(data[0])
@@ -146,7 +135,6 @@ function App() {
 
 
     }catch(err){
-      console.log(err.message)
       setLoading(false)
       setError(true)
       setErrMessage(err.message)

@@ -1,17 +1,17 @@
-import { Fragment, useEffect, useState} from 'react'
+import { Fragment, useEffect} from 'react'
 import Country from '../Country'
 import Navbar from '../Navbar'
 
 // 'https://restcountries.com/v3.1/name/nigeria?fullText=true'
 
-const Details = ({modeToggle, country, loading, error, errMessage}) => {
+const Details = ({modeToggle, country, setCountry, loading, error, errMessage}) => {
   document.title = 'Country Details'
 
   useEffect(() => {
-    return country
-  }, [country])
+    setCountry(JSON.parse(localStorage.getItem('country')))
+    // eslint-disable-next-line
+  }, [])
 
-  // const [country, setCountry] = useState([])
 
   return (
     <Fragment>

@@ -28,7 +28,7 @@ const Country = ({ country, loading, getBorderCountry, error, errMessage }) => {
             <div className='main-details'>
               <div className='text-xl lg:text-sm mt-3'>
                 <strong>Native Name: </strong>
-                {country.name.official}
+                {Object.values(country.name.nativeName).at(-1).common}
               </div>
               <div className='text-xl lg:text-sm mt-3'>
                 <strong>Population: </strong>

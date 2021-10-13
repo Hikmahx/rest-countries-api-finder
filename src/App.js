@@ -113,6 +113,7 @@ function App() {
       const res = await fetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`);
       const data = await res.json()
       console.log(data[0])
+      localStorage.setItem('country', JSON.stringify(data[0]))
       // eslint-disable-next-line
       setCountry(data[0])
       
@@ -157,6 +158,7 @@ function App() {
         <Route exact path="/details" render={()=>
           <Details 
             modeToggle={modeToggle}
+            setCountry={setCountry}
             country={country}
             loading={loading}
             error={error}

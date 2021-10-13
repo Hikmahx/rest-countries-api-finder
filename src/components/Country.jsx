@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Loading from './Loading';
 
 const Country = ({ country, loading, getBorderCountry, error, errMessage }) => {

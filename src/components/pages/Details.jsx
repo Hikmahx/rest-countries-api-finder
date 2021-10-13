@@ -10,6 +10,7 @@ const Details = ({
   loading,
   error,
   errMessage,
+  getBorderCountry
 }) => {
   document.title = 'Country Details';
 
@@ -33,6 +34,7 @@ const Details = ({
             loading={loading}
             error={error}
             errMessage={errMessage}
+            getBorderCountry={getBorderCountry}
           />
       </div>
 

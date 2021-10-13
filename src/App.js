@@ -128,6 +128,32 @@ function App() {
     }
   }
 
+  const getBorderCountry = async (e)=>{
+    let name = e.target.textContent
+    console.log(name)
+
+    try{
+      setLoading(true)
+
+      const res = await fetch(`https://restcountries.com/v3.1/alpha/${name}`);
+      const data = await res.json()
+      console.log(data[0])
+      localStorage.setItem('country', JSON.stringify(data[0]))
+      // eslint-disable-next-line
+      setCountry(data[0])
+      
+      setLoading(false)
+
+
+    }catch(err){
+      console.log(err.message)
+      setLoading(false)
+      setError(true)
+      setErrMessage(err.message)
+    }
+
+  }
+
   const [countries, setCountries] = useState([]);
   const [darkMode, setDarkMode] = useState(true)
   const [loading, setLoading] = useState(true)
@@ -163,7 +189,7 @@ function App() {
             loading={loading}
             error={error}
             errMessage= {errMessage}
-
+            getBorderCountry={getBorderCountry}
           />
         }/>
       </Switch>

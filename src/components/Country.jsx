@@ -66,7 +66,7 @@ const Country = ({ country, loading, getBorderCountry, error, errMessage }) => {
               <strong className='mb-3 lg:mb-0'>Border Countries: </strong>
               <span className='flex flex-wrap items-center'>
                 {country.borders.map(border => (
-                  <span onClick={getBorderCountry} className='py-2 m-2 px-4 rounded cursor-pointer transition-colors shadow-md bg-white dark:bg-dark-blue-dark'>
+                  <span onClick={getBorderCountry} className='py-2 m-2 px-4 rounded cursor-pointer transition-colors shadow-md bg-white dark:hover:bg-dark-gray-light hover:bg-dark-gray-light hover:text-white dark:bg-dark-blue-dark'>
                     {border}
                   </span>
                 ))}

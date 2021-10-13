@@ -14,16 +14,13 @@ const Country = ({country, loading, error, errMessage}) => {
       <div>
         <h1 className='text-xl lg:text-4xl text-center'>{errMessage}</h1>
       </div>
-      }{loading & !error &&
+      }
+      {loading &&
        <Loading />
-      }{!loading  &&
+      }
+      {!loading  &&
 
       <div className="details flex flex-col lg:flex-row justify-center items-start lg:items-center lg:justify-start lg:gap-12 xl:gap-20 mt-12 lg:mt-20">
-        {country.length<1 && 
-          <h1 className='text-xl lg:text-4xl text-center w-full'>Return to Homepage</h1>
-        }{
-          country &&
-          <>
         <div className="img-container lg:flex-1 flex items-start mb-16 lg:mb-0">
           <img className="h-full w-full" src= {country.flags.svg}  alt="flag" />
         </div>
@@ -71,9 +68,6 @@ const Country = ({country, loading, error, errMessage}) => {
             </div>
             }
         </div>
-          </>
-        }
-
       </div>
     } 
       

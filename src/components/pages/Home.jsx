@@ -3,6 +3,8 @@ import Main from '../Main'
 import Navbar from '../Navbar'
 
 const Home = ({modeToggle, countries, setCountries, searchInput, emptyInput, loading, error, errMessage, filterByRegion, getCountry}) => {
+  document.title = 'Countries Finder';
+
   return (
     <Fragment>
       <Navbar modeToggle={modeToggle}/>

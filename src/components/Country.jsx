@@ -13,6 +13,8 @@ const Country = ({ country, loading, getBorderCountry, error, errMessage }) => {
     return <Loading />;
   }
   if (loading === false) {
+    document.title = `${country.name.common} Details`;
+
     return (
       <div className='details flex flex-col lg:flex-row justify-center items-start lg:items-center lg:justify-start lg:gap-12 xl:gap-20 mt-12 lg:mt-20'>
         <div className='img-container lg:flex-1 flex items-start mb-16 lg:mb-0'>

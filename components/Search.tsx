@@ -1,17 +1,12 @@
 import React from "react";
+import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
 const Search = () =>
   // { searchInput, emptyInput }
   {
     return (
       <div className="search-container mb-12 dark:bg-dark-blue-dark py-4 px-8 bg-white lg:w-3/4 lg:max-w-lg shadow-md rounded flex items-center">
-        {/* <Ion-icon
-        class='text-dark-gray-light dark:text-white text-xl'
-        name='search'
-        aria-hidden="true"
-      ></IonIcon> */}
-      <i className="icon ion-ios-search text-dark-gray-light dark:text-white text-xl"></i>
-
+        <MagnifyingGlassIcon className="text-dark-gray-light dark:text-white text-xl w-5" />
         <form
         // onSubmit={searchInput}
         >

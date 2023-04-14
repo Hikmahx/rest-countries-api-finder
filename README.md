@@ -1,106 +1,38 @@
-# Frontend Mentor - REST Countries API with color theme switcher solution
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+## Getting Started
 
-## Table of contents
+First, run the development server:
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-
-
-## Overview
-
-### The challenge
-
-Users should be able to:
-
-- See countries from [REST Countries API](https://restcountries.com) on the homepage
-- Search for a country using an `input` field
-- Filter countries by region
-- Click on a country to see more detailed information on a separate page
-- Click through to the border countries on the detail page
-- Toggle the color scheme between light and dark mode 
-
-
-
-### Screenshot
-
-
-
-![](./design/countries-finder-hikmahx.vercel.app.png)
-
-Above is the screenshot of my solution and below is the provided design by Frontend Mentor
-
-![](./design/desktop-preview.jpg)
-
-### Links
-
-- Solution URL: [Click to visit my Frontend Mentor Solution](https://www.frontendmentor.io/solutions/rest-countries-api-with-theme-switcher-using-react-and-tailwindcss-90p5Kaj7-)
-- Live Site URL: [https://countries-finder-hikmahx.vercel.app](https://countries-finder-hikmahx.vercel.app/)
-
-## My process
-
-### Built with
-
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Tailwindcss](https://tailwindcss.com/) - CSS framework
-- [Ionicons](https://ionicons.com) - Icons
-
-
-
-### What I learned
-
-
-#### JS
-
-In this project, dealing with the API was a bit tricky, especially when trying to dynamically extract data for each of the cards. There were some cases where the names were different when mapping through an array of countries. For example, to get the native name, I had to do:
-
- ```js
- {Object.values(country.name.nativeName).at(-1).common}
- ```
-And not:
-
-```js
-{country.name.nativeName.common}
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
 ```
 
-In the former, it gets the last object in the nativeName object and gets the value of the key "common". In the later, the nativeNative contains an object and that object has a different key for each country. This makes it harder to use. If you use the first code, you would be able get the nativeName. 
-Others that I had to use "Object.values(...)" for include getting the currencies and languages.
-Currencies: 
-```js
-{Object.values(country.currencies)[0].name}
-```
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Languages(alphabetical):
-```js
-{Object.values(country.languages).sort().join(', ')}
-```
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-#### CSS
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-For some reasons the row-gap doesn't work on some devices. If you experience the countries having not space between them, it is due to the row-gap not compatible with your device. I tried looking it up on the internet, but I don't see the solution to this issue.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-### Useful resources
+## Learn More
 
-- [Stack Overflow](https://stackoverflow.com) - This helped me alot whenever I felt stuck. If you are also, just google your problem and click any of the stackoverflow link. It's very useful.
+To learn more about Next.js, take a look at the following resources:
 
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Author
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-- Github - [Hikmah Yousuph](https://github.com/Hikmahx)
-- Frontend Mentor - [@Hikmahx](https://www.frontendmentor.io/profile/Hikmahx)
-- Email - [hikmayousuph@gmail.com](hikmayousuph@gmail.com)
-- LinkedIn - [Hikmah Yousuph](linkedin.com/in/hikmah-yousuph-449467204/)
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

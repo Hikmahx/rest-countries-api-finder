@@ -2,7 +2,7 @@ import Main from "@/components/Main";
 import Navbar from "@/components/Navbar";
 import Head from "next/head";
 
-export default function Home(
+export default function Home() {
 //   {
 //   modeToggle,
 //   countries,
@@ -15,7 +15,6 @@ export default function Home(
 //   filterByRegion,
 //   getCountry,
 // }
-) {
   return (
     <>
       <Head>
@@ -30,19 +29,16 @@ export default function Home(
         ></meta>
       </Head>
       {/* <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-white"></main> */}
-      <Navbar
-      //  modeToggle={modeToggle}
-      />
       <Main
-        // countries={countries}
-        // setCountries={setCountries}
-        // searchInput={searchInput}
-        // emptyInput = {emptyInput}
-        // loading={loading}
-        // error={error}
-        // errMessage= {errMessage}
-        // filterByRegion={filterByRegion}
-        // getCountry={getCountry}
+      // countries={countries}
+      // setCountries={setCountries}
+      // searchInput={searchInput}
+      // emptyInput = {emptyInput}
+      // loading={loading}
+      // error={error}
+      // errMessage= {errMessage}
+      // filterByRegion={filterByRegion}
+      // getCountry={getCountry}
       />
     </>
   );

@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { Fragment, useEffect } from "react";
 // import { Link } from 'react-router-dom'
 // import Country from '../Country';
@@ -14,7 +15,7 @@ const Details = () =>
   //   getBorderCountry
   // }
   {
-    document.title = "Country Details";
+    // document.title = "Country Details";
 
     // useEffect(() => {
     //   setCountry(JSON.parse(localStorage.getItem('country')));
@@ -24,6 +25,9 @@ const Details = () =>
     return (
       <Fragment>
         {/* <Navbar modeToggle={modeToggle} /> */}
+        <Head>
+        <title>Country Details</title>
+        </Head>
         <div className="wrapper font-nunito relative p-6 sm:px-8 md:px-12 xl:px-20 pt-12 pb-20 lg:pb-11 min-h-screen dark:text-white mt-8">
           {/* <Link to="/" className="back-btn flex items-center py-2 mb-12 w-32 rounded cursor-pointer transition-colors shadow-md bg-white dark:bg-dark-blue-dark justify-center dark:hover:bg-dark-gray-light hover:bg-dark-gray-light hover:text-white"> */}
           {/* <ion-icon class="text-3xl md:text-xl" name="arrow-back-outline"></ion-icon> */}

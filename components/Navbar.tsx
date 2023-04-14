@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTheme } from "next-themes";
 import { MoonIcon } from "@heroicons/react/24/outline";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+import { getDefaultCountries } from "@/redux/reducers/countrySlice";
 
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
+  const dispatch = useDispatch<AppDispatch>();
 
+  useEffect( () => {
+    dispatch(getDefaultCountries())
+  }, [])
   return (
     <nav className="h-32 bg-white dark:bg-dark-blue-dark dark:text-white transition-colors sm:h-40 lg:h-20 p-6 sm:px-8 md:px-12 xl:px-20 flex items-center justify-between shadow-md">
       <h1 className="font-bold text-xl sm:text-3xl lg:text-2xl font-nunito">

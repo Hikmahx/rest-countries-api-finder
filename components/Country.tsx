@@ -36,7 +36,6 @@ const Country = () => {
                       <div className="main-details">
                         <div className="text-xl lg:text-sm mt-3">
                           <strong>Native Name: </strong>
-                          {/* {Object.values(country.name.nativeName).at(-1).common} */}
                           {
                             Object.values(country.name.nativeName).at(-1)
                               ?.common
@@ -79,18 +78,17 @@ const Country = () => {
                         <strong className="mb-3 lg:mb-0">
                           Border Countries:{" "}
                         </strong>
-                        <span className="flex flex-wrap items-center">
+                        <div className="flex flex-wrap items-center">
                           {countryBorders.map((border) => (
-                            <Link key={border} href={border.toLowerCase()}>
+                            <Link key={border} href={border.toLowerCase()} className="py-2 m-2">
                               <span
-                                // onClick={getBorderCountry}
-                                className="py-2 m-2 px-4 rounded cursor-pointer transition-colors shadow-md bg-white dark:hover:bg-dark-gray-light hover:bg-dark-gray-light hover:text-white dark:bg-dark-blue-dark"
+                                className="py-2 px-4 rounded cursor-pointer transition-colors shadow-md bg-white dark:hover:bg-dark-gray-light hover:bg-dark-gray-light hover:text-white dark:bg-dark-blue-dark"
                               >
                                 {border}
                               </span>
                             </Link>
                           ))}
-                        </span>
+                        </div>
                       </div>
                     )}
                   </div>

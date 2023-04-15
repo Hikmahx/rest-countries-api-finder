@@ -8,18 +8,7 @@ const Countries = () => {
   const { countries, loading, error, errMsg } = useSelector(
     (state: RootState) => state.country
   );
-  // { countries, loading, error, errMessage, getCountry }
-  // if (error === true) {
-  //   return (
-  //     <div>
-  //       <h1 className="text-xl lg:text-4xl text-center">{errMsg}</h1>
-  //     </div>
-  //   );
-  // } else {
-  //   if (loading === true) {
-  //     return <Loading />;
-  //   } else {
-  //     try {
+
   return (
     <>
       {!error ? (
@@ -46,17 +35,6 @@ const Countries = () => {
       )}
     </>
   );
-  // } catch (err) {
-  //   return (
-  //     <div>
-  //       <h1 className="text-xl lg:text-4xl text-center">
-  //         Country Not Found
-  //       </h1>
-  //     </div>
-  //   );
-  // }
-  // }
-  // }
 };
 
 export default Countries;

@@ -1,13 +1,8 @@
 import { Country } from "@/redux/reducers/types";
 import Link from "next/link";
 import React from "react";
-// import {Link} from 'react-router-dom'
-// type Props = {
-//   country: Country;
-// };
-const CountryItem = ({
-  country, // , getCountry
-}: any) => {
+
+const CountryItem = ({ country }: any) => {
   return (
     <Link
       href={country.name.common.toLowerCase()}
@@ -23,7 +18,6 @@ const CountryItem = ({
       </div>
       <div className="p-6">
         <h2
-          // to={"/details"}
           className="mt-0 cursor-pointer group-hover:text-dark-gray-light font-bold text-2xl lg:text-lg"
         >
           {country.name.common}

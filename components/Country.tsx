@@ -74,7 +74,7 @@ const Country = () => {
                       </div>
                     </div>
                     {countryBorders && (
-                      <div className="borders flex flex-col lg:flex-row">
+                      <div className="borders flex flex-col lg:flex-row lg:items-center">
                         <strong className="mb-3 lg:mb-0">
                           Border Countries:{" "}
                         </strong>

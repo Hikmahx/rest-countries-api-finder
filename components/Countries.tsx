@@ -9,38 +9,54 @@ const Countries = () => {
     (state: RootState) => state.country
   );
   // { countries, loading, error, errMessage, getCountry }
-  if (error === true) {
-    return (
-      <div>
-        <h1 className="text-xl lg:text-4xl text-center">{errMsg}</h1>
-      </div>
-    );
-  } else {
-    if (loading === true) {
-      return <Loading />;
-    } else {
-      try {
-        return (
-          <div
-            style={{ rowGap: "4.6rem", marginBottom: "2.5px" }}
-            className="countries-wrapper max-w-lg m-auto sm:max-w-xl lg:max-w-none sm:px-12 lg:p-0 flex flex-wrap justify-between lg:grid lg:grid-cols-3 xl:grid-cols-4 gap-x-20"
-          >
-            {countries.map((country) => (
-              <CountryItem />
-            ))}
-          </div>
-        );
-      } catch (err) {
-        return (
-          <div>
-            <h1 className="text-xl lg:text-4xl text-center">
-              Country Not Found
-            </h1>
-          </div>
-        );
-      }
-    }
-  }
+  // if (error === true) {
+  //   return (
+  //     <div>
+  //       <h1 className="text-xl lg:text-4xl text-center">{errMsg}</h1>
+  //     </div>
+  //   );
+  // } else {
+  //   if (loading === true) {
+  //     return <Loading />;
+  //   } else {
+  //     try {
+  return (
+    <>
+      {!error ? (
+        <>
+          {loading ? (
+            <div className="my-20 mx-auto">
+              <Loading />
+            </div>
+          ) : (
+            <div
+              style={{ rowGap: "4.6rem", marginBottom: "2.5px" }}
+              className="countries-wrapper max-w-lg m-auto sm:max-w-xl lg:max-w-none sm:px-12 lg:p-0 flex flex-wrap justify-between lg:grid lg:grid-cols-3 xl:grid-cols-4 gap-x-20"
+            >
+              {countries.map((country) => (
+                <CountryItem key={country.name.common} country={country} />
+              ))}
+            </div>
+          )}
+        </>
+      ) : (
+        <>
+          <p className="text-xl lg:text-4xl text-center">{errMsg}</p>
+        </>
+      )}
+    </>
+  );
+  // } catch (err) {
+  //   return (
+  //     <div>
+  //       <h1 className="text-xl lg:text-4xl text-center">
+  //         Country Not Found
+  //       </h1>
+  //     </div>
+  //   );
+  // }
+  // }
+  // }
 };
 
 export default Countries;
